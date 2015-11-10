@@ -1,20 +1,27 @@
 $(function(){
 
-// on créé une variable pour stocker l'information
-var now = new Date();
-var hour = now.getHours();
-var minutes = now.getMinutes();
-var seconds = now.getSeconds();
+count();
 
-// pour voir les variables
-console.log(now);
-console.log(hour, minutes, seconds);
+// on répète la fonction toutes les secondes
+setInterval(count, 1000);
 
-// on créé le texte a mettre dans le html
-var counter = hour + 'h ' + minutes + 'm ' + seconds + 's';
-console.log(counter);
+function count(){
+    // on créé une variable pour stocker l'information
+    var now = new Date();
+    var hour = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
 
-// on le remplace dans le HTML
-$('.counter').html(counter);
+    // pour voir les variables
+    console.log(now);
+    console.log(hour, minutes, seconds);
+
+    // on créé le texte a mettre dans le html
+    var counter = hour + 'h ' + minutes + 'm ' + seconds + 's';
+    console.log(counter);
+
+    // on le remplace dans le HTML
+    $('.counter').html(counter);
+}
 
 });

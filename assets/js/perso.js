@@ -4,6 +4,7 @@ $(function(){
 
     $('.start').click(function(){
         deadline = $('.date').val();
+        clearInterval(firstInterval);
         setInterval(countDown, 1000);
     });
 
@@ -20,7 +21,7 @@ $(function(){
         $('.counter').html(counter);
     }
 
-    setInterval(count, 1000);
+    var firstInterval = setInterval(count, 1000);
 
     function count(){
         // on créé une variable pour stocker l'information
@@ -41,6 +42,7 @@ $(function(){
         $('.counter').html(counter);
     }
 
+    // see https://gist.github.com/dot-louis/b6cd42ed74ed448415bd
     function getRemainingTime(endtime){
         var t = Date.parse(endtime) - Date.parse(new Date());
         var seconds = Math.floor( (t/1000) % 60 );
